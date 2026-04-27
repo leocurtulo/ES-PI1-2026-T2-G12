@@ -17,7 +17,6 @@ def menu_gerenciamento():
     print("="*40)
     print("1 - Eleitores")
     print("2 - Candidatos")
-    print("3 - Mesários")
     print("0 - Voltar")
     print("="*40)
     opcao = int(input("Escolha: "))
@@ -33,6 +32,8 @@ def menu_eleitores():
     print("3 - Buscar")
     print("4 - Editar")
     print("5 - Remover")
+    print("6 - Tornar Mesário")
+    print("7 - Listar Mesário")
     print("0 - Voltar")
     print("="*40)
 

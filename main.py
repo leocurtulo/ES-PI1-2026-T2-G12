@@ -33,6 +33,10 @@ while (opc != 0):
                                     print("Editar eleitor")
                                 case 5:
                                     print("Remover eleitor")
+                                case 6:
+                                    print("Tornar eleitor mesário")
+                                case 7:
+                                    print("Listar mesários")
                                 case 0:
                                     print("Voltando...")
                                 case _:
@@ -59,28 +63,6 @@ while (opc != 0):
                                     print("Voltando...")
                                 case _:
                                     print("Opção inválida.")
-                    # MESÁRIOS
-                    case 3:
-                         op = -1
-
-                         while (op != 0):
-                              op = menu.menu_mesarios()
-
-                              match op:
-                                   case 1:
-                                        print("Cadastrar mesário")
-                                   case 2:
-                                        print("Listar mesários")
-                                   case 3:
-                                        print("Buscar mesário")
-                                   case 4:
-                                        print("Editar mesário")
-                                   case 5:
-                                        print("Remover mesário")
-                                   case 0:
-                                        print("Voltando...")
-                                   case _:
-                                        print("Opção inválida.")
 
                     case 0:
                         print("Voltando...")
