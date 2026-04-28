@@ -1,4 +1,7 @@
 import menu
+import funcoes_PI
+
+
 
 opc = -1
 
@@ -24,11 +27,11 @@ while (opc != 0):
 
                             match op:
                                 case 1:
-                                    print("Cadastrar eleitor")
+                                    funcoes_PI.cadastro_eleitores()
                                 case 2:
                                     print("Listar eleitores")
                                 case 3:
-                                    print("Buscar eleitor")
+                                    funcoes_PI.buscar_eleitor()
                                 case 4:
                                     print("Editar eleitor")
                                 case 5:
