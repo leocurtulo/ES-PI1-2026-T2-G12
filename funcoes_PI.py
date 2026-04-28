@@ -10,8 +10,27 @@ def validar_cpf(cpf):
         return False       
     elif not cpf.isdigit():
         return False
+    elif cpf == cpf[0] * 11:
+        return False
+    soma = 0
+    for i in range (9):
+        soma += int(cpf[i]) * (10 - i)
+    resto = soma  % 11
+    if resto < 2:
+        digito1 = 0
+    else:
+        digito1= (11 - resto)
 
-    return True
+    soma = 0
+    for i in range (10):
+        soma += int(cpf[i]) * (11 - i)
+    resto = soma % 11
+    digito2 = (11 - resto)
+    if digito2 >= 10:
+        digito2 = 0
+
+
+    return cpf[9] == str(digito1) and cpf[10] == str(digito2)
 
 
 def cadastro_eleitores():
