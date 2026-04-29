@@ -33,57 +33,52 @@ def validar_cpf(cpf):
     return cpf[9] == str(digito1) and cpf[10] == str(digito2)
 
 
-def cadastro_eleitores():
-    nome = input("Digite Seu nome completo:")
-    nome = nome.strip()
 
-    titulo_eleitor = input("Digite seu titulo de eleitor:")
-    titulo_eleitor = titulo_eleitor.strip()
+
+
+
+def cadastro_eleitores():
+    nome = input("Digite Seu nome completo: ").strip()
+
+    titulo_eleitor = input("Digite seu titulo de eleitor: ").strip()
     titulo_eleitor = titulo_eleitor.replace(" ", "")
 
+    cpf = input("Digite seu CPF: ").strip()
+    cpf = cpf.replace(".", "").replace("-", "")
 
-    cpf = input("Digite seu CPF: ")
-    cpf = cpf.strip()
-    cpf = cpf.replace(".", "")
-    cpf = cpf.replace("-", "")
+    
+    if not validar_cpf(cpf):
+        print("CPF inválido. Cadastro não realizado.")
+        return  
 
-    chave_acesso = input ("Digite sua chave de acesso: ")
-    chave_acesso = chave_acesso.strip()
+    print("CPF válido.")
 
-    mesario = input("Você atuará como mesário? (SIM) ou (NÃO): ").upper()
-    mesario = mesario.strip()
+    chave_acesso = input("Digite sua chave de acesso: ").strip()
 
-    status = input ("Digite o status: ")
-    status = status.strip()
-    status = status.capitalize()
+    mesario = input("Você atuará como mesário? (SIM) ou (NÃO): ").strip().upper()
+    valor_mesario = True if mesario == "SIM" else False
 
-    if validar_cpf(cpf):
-        print("CPF válido")
-        if mesario == "SIM":
-            valor_mesario = True
-        else:
-            valor_mesario = False
-        
-        sql = """
+    status = input("Digite o status: ").strip().capitalize()
+
+    sql = """
         INSERT INTO eleitores 
         (cpf, nome_completo, titulo_eleitor, chave_acesso, is_mesario, status)
         VALUES (%s, %s, %s, %s, %s, %s)
-        """
-        valores = (
-            cpf,
-            nome,
-            titulo_eleitor,
-            chave_acesso,
-            valor_mesario,
-            status
-        )
+    """
 
-        conexao.cursor.execute(sql, valores)
-        conexao.conexao.commit()
-        print("Eleitor cadastrado com sucesso!")
+    valores = (
+        cpf,
+        nome,
+        titulo_eleitor,
+        chave_acesso,
+        valor_mesario,
+        status
+    )
 
-    else:
-        print("CPF inválido")
+    conexao.cursor.execute(sql, valores)
+    conexao.conexao.commit()
+
+    print("Eleitor cadastrado com sucesso!")
 
 
 
