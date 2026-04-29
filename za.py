@@ -4,7 +4,7 @@ def validar_titulo(titulo):
 
     # Verificação básica
     if len(titulo) != 12 or not titulo.isdigit():
-        return " ❌Título inválido: deve conter 12 números"
+        return " Título inválido: deve conter 12 números"
 
     # Divisão das partes do titulo de eleitor
     numero_sequencial = titulo[:8]
@@ -51,9 +51,9 @@ def validar_titulo(titulo):
     dv_calculado = str(dv1) + str(dv2)
 
     if dv_calculado == dv_informado:
-        return "✅ Título válido"
+        return " Título válido"
     else:
-        return "❌ Título inválido"
+        return " Título inválido"
 
 
 
