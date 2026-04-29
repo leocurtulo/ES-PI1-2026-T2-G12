@@ -10,4 +10,3 @@ Vitor Fachini Zanon
 Mysql
 Python
 GITHUB
-teste

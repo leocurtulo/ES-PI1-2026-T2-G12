@@ -1,5 +1,5 @@
 import conexao
-
+from za import validar_titulo
 
 
 def validar_cpf(cpf):
@@ -42,6 +42,10 @@ def cadastro_eleitores():
 
     titulo_eleitor = input("Digite seu titulo de eleitor: ").strip()
     titulo_eleitor = titulo_eleitor.replace(" ", "")
+    if not validar_titulo(titulo_eleitor):
+        print ("Título inváldo. Cadastro não realizado.")
+        return
+
 
     cpf = input("Digite seu CPF: ").strip()
     cpf = cpf.replace(".", "").replace("-", "")
